@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: Shipment
+    
+server:
+  port: 8085
+  
+composition:
+  messagebroker:
+    type: rabbitmq
+    host: localhost
+    port: 5672
+    exchange: composition
+  fragmentmanager:
+    url: http://localhost:8083
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2222/eureka

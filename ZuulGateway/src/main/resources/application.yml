@@ -1,0 +1,15 @@
+eureka:
+  client:
+    enabled: false
+    
+zuul:
+  routes:
+    eureka-server:
+      path: /eureka-server/**
+      url: http://localhost:2222
+
+ 
+server:
+  port: 9999   
+  
+ 
