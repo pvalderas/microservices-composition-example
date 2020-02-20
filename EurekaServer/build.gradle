@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+
+
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.RELEASE'
+	}
+}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
+}
+
+jar{
+	manifest {
+        attributes 'Main-Class': 'es.upv.pros.pvalderas.eureka.EurekaServer'
+    }
+    baseName = 'es.upv.pros.pvalderas.eurekaserver'
+    version =  '0.1.0'
+}
+
