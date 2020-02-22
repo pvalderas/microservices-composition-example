@@ -12,19 +12,23 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'java'
 
-repositories {
-    mavenCentral()
+allprojects {
+ 	repositories {
+	    mavenCentral()
+	    maven { url "https://jitpack.io" }
+	 }
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-   	compile project(':BPMNUtils')
-   	compile project(':BPMNDomainClasses')
-   	compile project(':FragmentManager')
+   	compile 'com.github.pvalderas:microservice-composition-fragmentmanager:master-SNAPSHOT'
 }
 
 jar{
