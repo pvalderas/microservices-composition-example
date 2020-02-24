@@ -36,7 +36,7 @@ Execute the microservices in the following order:
 
 The Global Composition Manager publishes at http://localhost:8086 a BPMN editor to create microservice composition. An snapshot of the BPMN editor is show next.
 
-(./BPMNMicroserviceComposer_snapshot.png "Screenshot of the BPMN Microservice Composer")
+![demo application screenshot](./BPMNMicroserviceComposer_snapshot.png "Screenshot of the BPMN Microservice Composer")
 
 This editor allows you to associate a microserive to a BPMN pool and the operations of this microservice to the service tasks of this pool. The operations are obtained from Eureka, which is accessed through Zuul in order to aviod Cross Domain Origin problems.
 
