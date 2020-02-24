@@ -1,7 +1,0 @@
-server:
-  port: 8083
-
-composition:
-  globalcompositionmanager:
-    url: http://localhost:8084
- 
