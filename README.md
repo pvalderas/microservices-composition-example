@@ -1,4 +1,4 @@
-# Microservice compositione example
+# Microservice composition based on the Choreography of BPMN fragments. Example
 
 This example shows how to create a choreographed composition of microservices by using BPMN diagrams. 
 To do so, the supporting infrastructure available in the following Github repository is used: [microservices-composition-infrastructure](https://github.com/pvalderas/microservices-composition-infrastructure).
@@ -34,12 +34,13 @@ Execute the microservices in the following order:
 
 # Creating a microservice composition
 
-The Global Composition Manager publishes at http://localhost:8086 a BPMN editor to create microservice composition. 
-This editor allows you to associate a microserive to a BPMN pool and the operations of this microservice to the service tasks of this pool. 
-The operations are obtained from Eureka, which is accessed through Zuul in order to aviod Cross Domain Origin problems.
+The Global Composition Manager publishes at http://localhost:8086 a BPMN editor to create microservice composition. An snapshot of the BPMN editor is show next.
 
-To test the example you can create a microservice composition from scratch or use the example uploaded at the root of this reposittory. An snapshot of the BPMN editor is show next.
+(./BPMNMicroserviceComposer_snapshot.png "Screenshot of the BPMN Microservice Composer")
 
+This editor allows you to associate a microserive to a BPMN pool and the operations of this microservice to the service tasks of this pool. The operations are obtained from Eureka, which is accessed through Zuul in order to aviod Cross Domain Origin problems.
+
+To test the example you can create a microservice composition from scratch or use the example uploaded at the root of this reposittory. 
 
 Once the microservice composition is created you just need to click the SEND button and give and ID to the compsition. Then, the composition is sent to the Fragment Manager which splits it into fragments and distributes them among the business microservices.
 
