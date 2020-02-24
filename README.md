@@ -36,7 +36,7 @@ Execute the microservices in the following order:
 
 The Global Composition Manager publishes at http://localhost:8086 a BPMN editor to create microservice composition. An snapshot of the BPMN editor is show next.
 
-![demo application screenshot1](./snapchots/BPMNMicroserviceComposer_snapshot1.png "Screenshot 1 of the BPMN Microservice Composer")
+![demo application screenshot1](./snapshots/BPMNMicroserviceComposer_snapshot1.png "Screenshot 1 of the BPMN Microservice Composer")
 
 This editor allows you to associate a microserive to a BPMN pool and the operations of this microservice to the service tasks of this pool. The operations are obtained from Eureka, which is accessed through Zuul in order to aviod Cross Domain Origin problems.
 
@@ -44,7 +44,7 @@ To test the example you can create a microservice composition from scratch or us
 
 Once the microservice composition is created you just need to click the SEND button and give and ID to the compsition. Then, the composition is sent to the Fragment Manager which splits it into fragments and distributes them among the business microservices.
 
-![demo application screenshot2](./snapchots/BPMNMicroserviceComposer_snapshot2.png "Screenshot 2 of the BPMN Microservice Composer")
+![demo application screenshot2](./snapshots/BPMNMicroserviceComposer_snapshot2.png "Screenshot 2 of the BPMN Microservice Composer")
 
 # Executing a microservice composition
 
