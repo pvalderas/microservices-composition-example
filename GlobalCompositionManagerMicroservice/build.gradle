@@ -36,5 +36,5 @@ jar{
         attributes 'Main-Class': 'es.upv.pros.pvalderas.composition.example.globalcompositionmanager.GlobalCompositionManagerMicroservice'
     }
     baseName = 'es.upv.pros.pvalderas.composition.example.globalcompositionmanagermicroservice'
-    version =  '0.1.0'
+    version =  '1.0'
 }

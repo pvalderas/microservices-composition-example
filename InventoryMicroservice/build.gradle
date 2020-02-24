@@ -42,5 +42,5 @@ jar{
         attributes 'Main-Class': 'es.upv.pros.pvalderas.composition.example.inventory.Inventory'
     }
     baseName = 'es.upv.pros.pvalders.composition.inventorymicroservice'
-    version =  '0.1.0'
+    version =  '1.0'
 }

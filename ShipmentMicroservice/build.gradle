@@ -42,5 +42,5 @@ jar{
         attributes 'Main-Class': 'es.upv.pros.pvalderas.composition.example.shipment.Shipment'
     }
     baseName = 'es.upv.pros.pvalders.composition.shipmentmicroservice'
-    version =  '0.1.0'
+    version =  '1.0'
 }

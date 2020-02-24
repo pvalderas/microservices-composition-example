@@ -34,8 +34,8 @@ jar{
 	manifest {
         attributes 'Main-Class': 'es.upv.pros.pvalderas.zuul.ZuulServer'
     }
-    baseName = 'es.rama.books.zuulserver'
-    version =  '0.1.0'
+    baseName = 'es.upv.pros.pvalders.composition.zuulserver'
+    version =  '1.0'
 }
 
 

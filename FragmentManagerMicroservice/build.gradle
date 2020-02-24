@@ -14,7 +14,7 @@ apply plugin: 'java'
 
 allprojects {
  	repositories {
-	    jcenter()
+	    mavenCentral()
 	    maven { url "https://jitpack.io" }
 	 }
 }
@@ -36,5 +36,5 @@ jar{
         attributes 'Main-Class': 'es.upv.pros.pvalderas.composition.example.fragmentmanager.FragmentManagerMicroservice'
     }
     baseName = 'es.upv.pros.pvalderas.composition.example.fragmentmanagermicroservice'
-    version =  '0.1.0'
+    version =  '1.0'
 }
