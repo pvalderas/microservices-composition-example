@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="ProcessOrder_PAYMENT_fragment" targetNamespace="http://bpmn.io/schema/bpmn"><bpmn:collaboration id="collaboration"><bpmn:participant id="collapsedPoolParticipant" name="EVENT BUS" processRef="collapsedPoolProcess"/><bpmn:participant id="Participant_1vqa33e" name="PAYMENT" processRef="ProcessOrder_Process_0l3qg4b"/><bpmn:messageFlow id="collapsedPoolParticipant-StartEvent_0ofkwm5" sourceRef="collapsedPoolParticipant" targetRef="StartEvent_0ofkwm5"/><bpmn:messageFlow id="EndEvent_0uxtgne-collapsedPoolParticipant" sourceRef="EndEvent_0uxtgne" targetRef="collapsedPoolParticipant"/><bpmn:messageFlow id="EndEvent_0xcpu6g-collapsedPoolParticipant" sourceRef="EndEvent_0xcpu6g" targetRef="collapsedPoolParticipant"/></bpmn:collaboration><bpmn:message id="EnoughStock" name="ProcessOrder_EnoughStockMessage"/><bpmn:message id="PaymentOK" name="ProcessOrder_PaymentOKMessage"/><bpmn:message id="PaymentFailed" name="ProcessOrder_PaymentFailedMessage"/><bpmn:process id="ProcessOrder_Process_0l3qg4b" isExecutable="true">
+    <bpmn:serviceTask id="ServiceTask_04aarjs" name="changePaymentDetails" xmlns:custom="http://custom/ns" custom:url="http://158.42.140.112:8086/changepaymentdetails" custom:method="GET" camunda:delegateExpression="${serviceClass}">
+      <bpmn:extensionElements>
+        <camunda:field name="url" stringValue="http://192.168.1.62:8086/changepaymentdetails"/>
+        <camunda:field name="method" stringValue="GET"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1d70tjq</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0rgnozq</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="ServiceTask_1l3sk3a" name="paymentProcess" xmlns:custom="http://custom/ns" custom:url="http://158.42.140.112:8086/paymentprocess" custom:method="GET" camunda:delegateExpression="${serviceClass}">
+      <bpmn:extensionElements>
+        <camunda:field name="url" stringValue="http://192.168.1.62:8086/paymentprocess"/>
+        <camunda:field name="method" stringValue="GET"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1f6cwiv</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0gzq95p</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_0ofkwm5" name="Enough Stock">
+      <bpmn:outgoing>SequenceFlow_070m5hg</bpmn:outgoing>
+      <bpmn:messageEventDefinition messageRef="EnoughStock"/>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0zmoylf" sourceRef="Task_1v7zv47" targetRef="EndEvent_0xcpu6g"/>
+    <bpmn:sequenceFlow id="SequenceFlow_19fpf7b" sourceRef="Task_07r9m43" targetRef="Task_1v7zv47"/>
+    <bpmn:sequenceFlow id="SequenceFlow_070m5hg" sourceRef="StartEvent_0ofkwm5" targetRef="Task_0e2o1cj"/>
+    <bpmn:sequenceFlow id="SequenceFlow_0rgnozq" sourceRef="ServiceTask_04aarjs" targetRef="Task_0e2o1cj"/>
+    <bpmn:sequenceFlow id="SequenceFlow_1d70tjq" sourceRef="BoundaryEvent_04hffgp" targetRef="ServiceTask_04aarjs"/>
+    <bpmn:sequenceFlow id="SequenceFlow_1f6cwiv" sourceRef="Task_0e2o1cj" targetRef="ServiceTask_1l3sk3a"/>
+    <bpmn:sequenceFlow id="SequenceFlow_1gl67fk" sourceRef="IntermediateThrowEvent_1uxrkv6" targetRef="Task_07r9m43"/>
+    <bpmn:sequenceFlow id="SequenceFlow_0gzq95p" sourceRef="ServiceTask_1l3sk3a" targetRef="EndEvent_0uxtgne"/>
+    <bpmn:endEvent id="EndEvent_0uxtgne" name="Payment OK">
+      <bpmn:incoming>SequenceFlow_0gzq95p</bpmn:incoming>
+      <bpmn:messageEventDefinition camunda:delegateExpression="${eventSender}"><bpmn:extensionElements><camunda:field name="message" stringValue="ProcessOrder_PaymentOKMessage"/><camunda:field name="microservice" stringValue="INVENTORY"/></bpmn:extensionElements></bpmn:messageEventDefinition>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_07r9m43" name="cancelOrder" xmlns:custom="http://custom/ns" custom:url="http://158.42.140.112:8086/cancelorder" custom:method="GET" camunda:delegateExpression="${serviceClass}">
+      <bpmn:extensionElements>
+        <camunda:field name="url" stringValue="http://192.168.1.62:8086/cancelorder"/>
+        <camunda:field name="method" stringValue="GET"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1gl67fk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_19fpf7b</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_0xcpu6g" name="Payment Failed">
+      <bpmn:incoming>SequenceFlow_0zmoylf</bpmn:incoming>
+      <bpmn:messageEventDefinition camunda:delegateExpression="${eventSender}"><bpmn:extensionElements><camunda:field name="message" stringValue="ProcessOrder_PaymentFailedMessage"/><camunda:field name="microservice" stringValue="INVENTORY"/></bpmn:extensionElements></bpmn:messageEventDefinition>
+    </bpmn:endEvent>
+    <bpmn:boundaryEvent id="IntermediateThrowEvent_1uxrkv6" attachedToRef="ServiceTask_1l3sk3a">
+      <bpmn:outgoing>SequenceFlow_1gl67fk</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_02qnauz"/>
+    </bpmn:boundaryEvent>
+    <bpmn:serviceTask id="Task_0e2o1cj" name="showPaymentOptions" xmlns:custom="http://custom/ns" custom:url="http://158.42.140.112:8086/showpaymentoptions" custom:method="GET" camunda:delegateExpression="${serviceClass}">
+      <bpmn:extensionElements>
+        <camunda:field name="url" stringValue="http://192.168.1.62:8086/showpaymentoptions"/>
+        <camunda:field name="method" stringValue="GET"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_070m5hg</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0rgnozq</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1f6cwiv</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:boundaryEvent id="BoundaryEvent_04hffgp" attachedToRef="Task_0e2o1cj">
+      <bpmn:outgoing>SequenceFlow_1d70tjq</bpmn:outgoing>
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">${0 == 1}</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:serviceTask id="Task_1v7zv47" name="informCustomer" xmlns:custom="http://custom/ns" custom:url="http://158.42.140.112:8086/informcustomer" custom:method="GET" camunda:delegateExpression="${serviceClass}">
+      <bpmn:extensionElements>
+        <camunda:field name="url" stringValue="http://192.168.1.62:8086/informcustomer"/>
+        <camunda:field name="method" stringValue="GET"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_19fpf7b</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0zmoylf</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process><bpmn:process id="collapsedPoolProcess"/><bpmndi:BPMNDiagram id="BPMNdiagram"><bpmndi:BPMNPlane id="BPMNPlane" bpmnElement="collaboration"><bpmndi:BPMNShape id="ServiceTask_1l3sk3a_di" bpmnElement="ServiceTask_1l3sk3a">
+        <dc:Bounds x="1040" y="770" width="100" height="80"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNShape id="ServiceTask_04aarjs_di" bpmnElement="ServiceTask_04aarjs">
+        <dc:Bounds x="890" y="910" width="100" height="80"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNShape id="Participant_1vqa33e_di" bpmnElement="Participant_1vqa33e" isHorizontal="true">
+        <dc:Bounds x="160" y="750" width="1970" height="280"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNShape id="viewforcollapsed" bpmnElement="collapsedPoolParticipant" isHorizontal="true">
+        <dc:Bounds x="160" y="1050" width="1970" height="100"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNEdge id="SequenceFlow_1d70tjq_di" bpmnElement="SequenceFlow_1d70tjq">
+        <di:waypoint x="970" y="868"/>
+        <di:waypoint x="970" y="950"/>
+        <di:waypoint x="970" y="910"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNShape id="BoundaryEvent_0m6a6cj_di" bpmnElement="BoundaryEvent_04hffgp">
+        <dc:Bounds x="952" y="832" width="36" height="36"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNEdge id="SequenceFlow_0rgnozq_di" bpmnElement="SequenceFlow_0rgnozq">
+        <di:waypoint x="920" y="910"/>
+        <di:waypoint x="920" y="850"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_070m5hg_di" bpmnElement="SequenceFlow_070m5hg">
+        <di:waypoint x="828" y="810"/>
+        <di:waypoint x="890" y="810"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNShape id="ServiceTask_0p7tkfj_di" bpmnElement="Task_07r9m43">
+        <dc:Bounds x="1150" y="910" width="100" height="80"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNEdge id="SequenceFlow_1f6cwiv_di" bpmnElement="SequenceFlow_1f6cwiv">
+        <di:waypoint x="990" y="810"/>
+        <di:waypoint x="1040" y="810"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNShape id="StartEvent_0zqiuwb_di" bpmnElement="StartEvent_0ofkwm5">
+        <dc:Bounds x="792" y="792" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="776" y="835" width="69" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape><bpmndi:BPMNEdge id="SequenceFlow_19fpf7b_di" bpmnElement="SequenceFlow_19fpf7b">
+        <di:waypoint x="1250" y="950"/>
+        <di:waypoint x="1280" y="950"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNShape id="EndEvent_07lfbc6_di" bpmnElement="EndEvent_0uxtgne">
+        <dc:Bounds x="1192" y="792" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1179" y="835" width="63" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape><bpmndi:BPMNShape id="EndEvent_1vedwin_di" bpmnElement="EndEvent_0xcpu6g">
+        <dc:Bounds x="1402" y="932" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1382" y="975" width="77" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape><bpmndi:BPMNEdge id="SequenceFlow_0zmoylf_di" bpmnElement="SequenceFlow_0zmoylf">
+        <di:waypoint x="1380" y="950"/>
+        <di:waypoint x="1402" y="950"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_1gl67fk_di" bpmnElement="SequenceFlow_1gl67fk">
+        <di:waypoint x="1120" y="868"/>
+        <di:waypoint x="1120" y="950"/>
+        <di:waypoint x="1150" y="950"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_0gzq95p_di" bpmnElement="SequenceFlow_0gzq95p">
+        <di:waypoint x="1140" y="810"/>
+        <di:waypoint x="1192" y="810"/>
+      </bpmndi:BPMNEdge><bpmndi:BPMNShape id="BoundaryEvent_0t2vzn2_di" bpmnElement="IntermediateThrowEvent_1uxrkv6">
+        <dc:Bounds x="1102" y="832" width="36" height="36"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNShape id="ServiceTask_17gmk07_di" bpmnElement="Task_0e2o1cj">
+        <dc:Bounds x="890" y="770" width="100" height="80"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNShape id="ServiceTask_0ybc9f3_di" bpmnElement="Task_1v7zv47">
+        <dc:Bounds x="1280" y="910" width="100" height="80"/>
+      </bpmndi:BPMNShape><bpmndi:BPMNEdge id="collapsedPoolParticipant-StartEvent_0ofkwm5_di" bpmnElement="collapsedPoolParticipant-StartEvent_0ofkwm5"><di:waypoint x="810" y="1050"/><di:waypoint x="810" y="828"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="EndEvent_0uxtgne-collapsedPoolParticipant_di" bpmnElement="EndEvent_0uxtgne-collapsedPoolParticipant"><di:waypoint x="1210" y="828"/><di:waypoint x="1210" y="1050"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="EndEvent_0xcpu6g-collapsedPoolParticipant_di" bpmnElement="EndEvent_0xcpu6g-collapsedPoolParticipant"><di:waypoint x="1420" y="968"/><di:waypoint x="1420" y="1050"/></bpmndi:BPMNEdge></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>
