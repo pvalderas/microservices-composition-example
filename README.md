@@ -21,7 +21,7 @@ This example is composed by 8 microservices:
 
 # Building and executing the example
 
-Clone this Github repository and build each microservice with Gradle. To execute the microservice composition this example assumes you have [RabbitMQ](https://www.rabbitmq.com/) installed.
+Clone this Github repository and build each microservice with Gradle. To execute the microservice composition this example assumes you have [RabbitMQ](https://www.rabbitmq.com/) installed and started.
 
 Execute the microservices in the following order:
 <ol>
@@ -34,15 +34,17 @@ Execute the microservices in the following order:
 
 # Creating a microservice composition
 
-The Global Composition Manager publishes at http://localhost:8086 a BPMN editor to create microservice composition. An snapshot of the BPMN editor is show next.
+The Global Composition Manager publishes at http://localhost:8084 a BPMN editor to create microservice composition. An snapshot of the BPMN editor is show next.
 
-![demo application screenshot](./BPMNMicroserviceComposer_snapshot.png "Screenshot of the BPMN Microservice Composer")
+![demo application screenshot1](./snapshots/BPMNMicroserviceComposer_snapshot1.mp4 "Screenshot 1 of the BPMN Microservice Composer")
 
-This editor allows you to associate a microserive to a BPMN pool and the operations of this microservice to the service tasks of this pool. The operations are obtained from Eureka, which is accessed through Zuul in order to aviod Cross Domain Origin problems.
+This editor allows you to associate a microserive to a BPMN pool and the operations of this microservice to the service tasks of this pool. The operations are obtained from Eureka, which is accessed through Zuul in order to avoid Cross Domain Origin problems.
 
 To test the example you can create a microservice composition from scratch or use the example uploaded at the root of this reposittory. 
 
 Once the microservice composition is created you just need to click the SEND button and give and ID to the compsition. Then, the composition is sent to the Fragment Manager which splits it into fragments and distributes them among the business microservices.
+
+![demo application screenshot2](./snapshots/BPMNMicroserviceComposer_snapshot2.png "Screenshot 2 of the BPMN Microservice Composer")
 
 # Executing a microservice composition
 
@@ -67,3 +69,10 @@ For instance, in order to start the composition of the provided example, if you 
 }
 
 To facilitate the publication of messages, the RabbitCompositionEventSender Java application is provided. 
+
+# Evolving a microservice composition
+
+In order to evolve a microservice composition you have two options:
+
+* Modify the big picture of the composition by using the BPMN editor provided by the Global Composition Manager. Then, changes are propagated to the Fragment of each microservice.
+* Modify the BPMN fragment of a particular microservice. To do so, the Composition Controller of each microservice publishes an adapted version of the BPMN editor, which allows you to select a Fragment managed by the microservice, modify it, and sincronize changes with the big picture.
