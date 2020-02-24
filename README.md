@@ -16,7 +16,7 @@ This composition approach is supported by a microservice infrastucture developed
 This example is composed by 8 microservices:
 
 * 4 business microservices: Customers, Inventory, Payment and Shipment. These microservices are endowed with the functionality provided by the Composition Controller module, which supports the choreographed execution of BPMN fragments.
-* 2 typical infrastucture microservices: an Eureka service registry, and a Zuul gatway
+* 2 typical infrastucture microservices: an Eureka service registry, and a Zuul gateway
 * 2 additional microservices for supporing the composition of business microservices: the Fragment Manager and the Global Composition Manager
 
 # Building and executing the example
@@ -75,6 +75,6 @@ To facilitate the publication of messages, the RabbitCompositionEventSender Java
 In order to evolve a microservice composition you have two options:
 
 * Modify the big picture of the composition by using the BPMN editor provided by the Global Composition Manager. Then, changes are propagated to the Fragment of each microservice.
-* Modify the BPMN fragment of a particular microservice. To do so, the Composition Controller of each microservice publishes an adapted version of the BPMN editor, which allows you to select a Fragment managed by the microservice, modify it, and sincronize changes with the big picture. A animated snapshot of this editor is shown below.
+* Modify the BPMN fragment of a particular microservice. To do so, the Composition Controller of each microservice publishes an adapted version of the BPMN editor, which allows you to select a Fragment managed by the microservice, modify it, and sincronize changes with the big picture. An animated snapshot of this editor is shown below.
 
 ![demo application screenshot3](./snapshots/BPMNMicroserviceComposer_snapshot3.gif "Screenshot 3 of the BPMN Microservice Composer")
