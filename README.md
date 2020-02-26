@@ -78,3 +78,5 @@ In order to evolve a microservice composition you have two options:
 * Modify the BPMN fragment of a particular microservice. To do so, the Composition Controller of each microservice publishes an adapted version of the BPMN editor, which allows you to select a Fragment managed by the microservice, modify it, and sincronize changes with the big picture. For instance, the BPMN editor of the Customer microservice is published at http://localhost:8081. An animated snapshot of it is shown below.
 
 ![demo application screenshot3](./snapshots/BPMNMicroserviceComposer_snapshot3.gif "Screenshot 3 of the BPMN Microservice Composer")
+
+Note that the evolution of a microservice composition from a BPMN Fragment is limited to changes in service tasks performed by the corresponding microservice, the defined event-based communication must be mantained. This means that, for instance, catch and through events, and message flows cannot be modified. These type of modifications must be done from the big picture provided by the Global Composition Manager.
