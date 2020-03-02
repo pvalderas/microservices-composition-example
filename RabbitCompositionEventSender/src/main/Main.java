@@ -47,8 +47,6 @@ public class Main {
 		String BPMNMessage=composition+"_"+message+"Message";
 		String messageJSON="{\"message\":\""+BPMNMessage+"\",\"client\":\""+client+"\"}";
 		
-		System.out.println(messageJSON);
-		
 		if(message!="quit"){
 			channel.basicPublish(exchange, routingKey, null, messageJSON.getBytes());
 		}
