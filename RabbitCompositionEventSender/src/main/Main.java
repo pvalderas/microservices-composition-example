@@ -14,7 +14,7 @@ public class Main {
 	private static final String exchange="composition";
 	
 	public static void main(String[] args) throws IOException, TimeoutException {
-		System.out.println(System.currentTimeMillis());
+		
 		Scanner teclado=new Scanner(System.in);
 
 		ConnectionFactory factory = new ConnectionFactory();
@@ -32,15 +32,25 @@ public class Main {
 		System.out.println("Introduce composition ID:");
 		System.out.println("[INTRO (Default): ProcessOrder]");
 		composition=teclado.nextLine();
-		if(microservice.length()==0) composition="ProcessOrder";
+		if(composition.length()==0) composition="ProcessOrder";
 		
 		System.out.println("Introduce an event:");
 		System.out.println("[INTRO (Default): ProcessPurchaseOrder]");
 		message=teclado.nextLine();
 		if(message.length()==0)  message="ProcessPurchaseOrder";
 		
+		String client=String.valueOf(System.currentTimeMillis());
+		
+		String routingKey=microservice+"."+composition.toLowerCase()+"."+client;
+	
+		
+		String BPMNMessage=composition+"_"+message+"Message";
+		String messageJSON="{\"message\":\""+BPMNMessage+"\",\"client\":\""+client+"\"}";
+		
+		System.out.println(messageJSON);
+		
 		if(message!="quit"){
-			channel.basicPublish(exchange, microservice+"."+composition, null, (composition+"_"+message+"Message").getBytes());
+			channel.basicPublish(exchange, routingKey, null, messageJSON.getBytes());
 		}
 		
 		teclado.close();
