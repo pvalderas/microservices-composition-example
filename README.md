@@ -70,9 +70,9 @@ For instance, in order to start the composition of the provided example, if you 
 
 To facilitate the publication of messages, the RabbitCompositionEventSender Java application is provided. 
 
-# Evolving a microservice composition
+# Updating a microservice composition
 
-In order to evolve a microservice composition you have two options:
+In order to update a microservice composition you have two options:
 
 * Modify the big picture of the composition by using the BPMN editor provided by the Global Composition Manager. Then, changes are propagated to the Fragment of each microservice.
 * Modify the BPMN fragment of a particular microservice. To do so, the Composition Controller of each microservice publishes an adapted version of the BPMN editor, which allows you to select a Fragment managed by the microservice, modify it, and sincronize changes with the big picture. For instance, the BPMN editor of the Customer microservice is published at http://localhost:8081. An animated snapshot of it is shown below.
