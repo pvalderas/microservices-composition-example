@@ -30,9 +30,9 @@ public class Main {
 		if(microservice.length()==0) microservice="customers";
 		
 		System.out.println("Introduce composition ID:");
-		System.out.println("[INTRO (Default): ProcessOrder]");
+		System.out.println("[INTRO (Default): PurchaseOrder]");
 		composition=teclado.nextLine();
-		if(composition.length()==0) composition="ProcessOrder";
+		if(composition.length()==0) composition="PurchaseOrder";
 		
 		System.out.println("Introduce an event:");
 		System.out.println("[INTRO (Default): ProcessPurchaseOrder]");
@@ -45,6 +45,7 @@ public class Main {
 	
 		
 		String BPMNMessage=composition+"_"+message+"Message";
+		System.out.println(BPMNMessage);
 		String messageJSON="{\"message\":\""+BPMNMessage+"\",\"client\":\""+client+"\"}";
 		
 		if(message!="quit"){

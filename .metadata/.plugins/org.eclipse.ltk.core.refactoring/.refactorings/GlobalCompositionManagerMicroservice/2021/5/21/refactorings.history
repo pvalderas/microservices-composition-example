@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;GlobalCompositionManagerMicroservice&apos;&#x0A;- Original project: &apos;GlobalCompositionManagerMicroservice&apos;&#x0A;- Original elements:&#x0A;     DistributionCenter.bpmn&#x0A;     hh.bpmn&#x0A;     MultidisciplinaryExample.bpmn&#x0A;     NewModel.bpmn" description="Delete elements" element1="compositions/DistributionCenter.bpmn" element2="compositions/NewModel.bpmn" element3="compositions/hh.bpmn" element4="compositions/MultidisciplinaryExample.bpmn" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="4" stamp="1622016094346" subPackages="false" version="1.0"/>
+</session>

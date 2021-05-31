@@ -34,7 +34,7 @@ jar{
 	manifest {
         attributes 'Main-Class': 'es.upv.pros.pvalderas.zuul.ZuulServer'
     }
-    baseName = 'es.upv.pros.pvalders.composition.zuulserver'
+    baseName = 'es.upv.pros.pvalderas.composition.zuulserver'
     version =  '1.0'
 }
 

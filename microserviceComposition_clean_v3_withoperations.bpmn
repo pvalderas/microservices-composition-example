@@ -13,9 +13,9 @@
     <bpmn:messageFlow id="MessageFlow_1u8c1af" sourceRef="EndEvent_0xcpu6g" targetRef="IntermediateThrowEvent_19t8t3k" />
   </bpmn:collaboration>
   <bpmn:process id="Process_0hipkwi" isExecutable="false">
-    <bpmn:serviceTask id="ServiceTask_0626o4t" name="checkCustomer" custom:url="http://158.42.140.112:8081/checkcustomer" custom:method="GET">
+    <bpmn:serviceTask id="ServiceTask_0626o4t" name="checkCustomer" custom:url="http://localhost:8081/checkcustomer" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8081/checkcustomer" />
+        <camunda:field name="url" stringValue="http://localhost:8081/checkcustomer" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0sn8zf6</bpmn:incoming>
@@ -24,17 +24,17 @@
     <bpmn:endEvent id="EndEvent_0lnu2h6">
       <bpmn:incoming>SequenceFlow_09avmiw</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:serviceTask id="Task_0vo5g53" name="cancelOrder" custom:url="http://158.42.140.112:8081/cancelorder" custom:method="GET">
+    <bpmn:serviceTask id="Task_0vo5g53" name="cancelOrder" custom:url="http://localhost:8081/cancelorder" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8081/cancelorder" />
+        <camunda:field name="url" stringValue="http://localhost:8081/cancelorder" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_15jk787</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0qparhr</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_0zc6mlc" name="updateCustomerRecord" custom:url="http://158.42.140.112:8081/updatecustomerrecord" custom:method="GET">
+    <bpmn:serviceTask id="Task_0zc6mlc" name="updateCustomerRecord" custom:url="http://localhost:8081/updatecustomerrecord" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8081/updatecustomerrecord" />
+        <camunda:field name="url" stringValue="http://localhost:8081/updatecustomerrecord" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_19gw26p</bpmn:incoming>
@@ -49,9 +49,9 @@
       <bpmn:incoming>SequenceFlow_0503zl7</bpmn:incoming>
       <bpmn:messageEventDefinition />
     </bpmn:endEvent>
-    <bpmn:serviceTask id="Task_0dwg5by" name="logRequest" custom:url="http://158.42.140.112:8081/logrequest" custom:method="GET">
+    <bpmn:serviceTask id="Task_0dwg5by" name="logRequest" custom:url="http://localhost:8081/logrequest" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8081/logrequest" />
+        <camunda:field name="url" stringValue="http://localhost:8081/logrequest" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_13grrvt</bpmn:incoming>
@@ -75,15 +75,15 @@
     <bpmn:sequenceFlow id="SequenceFlow_0503zl7" sourceRef="Task_10i9990" targetRef="EndEvent_1ofpjgn" />
     <bpmn:serviceTask id="Task_1p8h9rz" name="informCustomer" custom:url="http://158.42.140.112:8081/informcustomer" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8081/informcustomer" />
+        <camunda:field name="url" stringValue="http://localhost:8081/informcustomer" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0qparhr</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_09avmiw</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_10i9990" name="informCustomer" custom:url="http://158.42.140.112:8081/informcustomer" custom:method="GET">
+    <bpmn:serviceTask id="Task_10i9990" name="informCustomer" custom:url="http://localhost:8081/informcustomer" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8081/informcustomer" />
+        <camunda:field name="url" stringValue="http://localhost:8081/informcustomer" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1h3fghq</bpmn:incoming>
@@ -98,17 +98,17 @@
     <bpmn:sequenceFlow id="SequenceFlow_1a0x9h4" sourceRef="IntermediateThrowEvent_06f6r4x" targetRef="IntermediateThrowEvent_08qzkak" />
   </bpmn:process>
   <bpmn:process id="Process_0l3qg4b" isExecutable="false">
-    <bpmn:serviceTask id="ServiceTask_04aarjs" name="changePaymentDetails" custom:url="http://158.42.140.112:8086/changepaymentdetails" custom:method="GET">
+    <bpmn:serviceTask id="ServiceTask_04aarjs" name="changePaymentDetails" custom:url="http://localhost:8086/changepaymentdetails" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8086/changepaymentdetails" />
+        <camunda:field name="url" stringValue="http://localhost:8086/changepaymentdetails" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1d70tjq</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0rgnozq</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="ServiceTask_1l3sk3a" name="paymentProcess" custom:url="http://158.42.140.112:8086/paymentprocess" custom:method="GET">
+    <bpmn:serviceTask id="ServiceTask_1l3sk3a" name="paymentProcess" custom:url="http://localhost:8086/paymentprocess" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8086/paymentprocess" />
+        <camunda:field name="url" stringValue="http://localhost:8086/paymentprocess" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1f6cwiv</bpmn:incoming>
@@ -122,9 +122,9 @@
       <bpmn:incoming>SequenceFlow_0gzq95p</bpmn:incoming>
       <bpmn:messageEventDefinition />
     </bpmn:endEvent>
-    <bpmn:serviceTask id="Task_07r9m43" name="cancelOrder" custom:url="http://158.42.140.112:8086/cancelorder" custom:method="GET">
+    <bpmn:serviceTask id="Task_07r9m43" name="cancelOrder" custom:url="http://localhost:8086/cancelorder" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8086/cancelorder" />
+        <camunda:field name="url" stringValue="http://localhost:8086/cancelorder" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1gl67fk</bpmn:incoming>
@@ -134,18 +134,18 @@
       <bpmn:incoming>SequenceFlow_0zmoylf</bpmn:incoming>
       <bpmn:messageEventDefinition />
     </bpmn:endEvent>
-    <bpmn:serviceTask id="Task_0e2o1cj" name="showPaymentOptions" custom:url="http://158.42.140.112:8086/showpaymentoptions" custom:method="GET">
+    <bpmn:serviceTask id="Task_0e2o1cj" name="showPaymentOptions" custom:url="http://localhost:8086/showpaymentoptions" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8086/showpaymentoptions" />
+        <camunda:field name="url" stringValue="http://localhost:8086/showpaymentoptions" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_070m5hg</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_0rgnozq</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1f6cwiv</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_1v7zv47" name="informCustomer" custom:url="http://158.42.140.112:8086/informcustomer" custom:method="GET">
+    <bpmn:serviceTask id="Task_1v7zv47" name="informCustomer" custom:url="http://localhost:8086/informcustomer" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8086/informcustomer" />
+        <camunda:field name="url" stringValue="http://localhost:8086/informcustomer" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_19fpf7b</bpmn:incoming>
@@ -171,9 +171,9 @@
     <bpmn:sequenceFlow id="SequenceFlow_0zmoylf" sourceRef="Task_1v7zv47" targetRef="EndEvent_0xcpu6g" />
   </bpmn:process>
   <bpmn:process id="Process_1q9f49e" isExecutable="false">
-    <bpmn:serviceTask id="ServiceTask_0l7xx9r" name="checkAvailabity" custom:url="http://158.42.140.112:8082/checkavailability" custom:method="GET">
+    <bpmn:serviceTask id="ServiceTask_0l7xx9r" name="checkAvailabity" custom:url="http://localhost:8082/checkavailability" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8082/checkavailability" />
+        <camunda:field name="url" stringValue="http://localhost:8082/checkavailability" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1n1uzq4</bpmn:incoming>
@@ -188,9 +188,9 @@
     <bpmn:sequenceFlow id="SequenceFlow_0mqhd07" sourceRef="Task_0wcbuzx" targetRef="EndEvent_0ki3b03" />
     <bpmn:sequenceFlow id="SequenceFlow_07a7j1z" sourceRef="IntermediateThrowEvent_05lkfcb" targetRef="Task_15zmvin" />
     <bpmn:sequenceFlow id="SequenceFlow_1st8mja" sourceRef="ServiceTask_0l7xx9r" targetRef="Task_0sfhu0v" />
-    <bpmn:serviceTask id="Task_0sfhu0v" name="bookProducts" custom:url="http://158.42.140.112:8082/bookproducts" custom:method="GET">
+    <bpmn:serviceTask id="Task_0sfhu0v" name="bookProducts" custom:url="http://localhost:8082/bookproducts" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8082/bookproducts" />
+        <camunda:field name="url" stringValue="http://localhost:8082/bookproducts" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1st8mja</bpmn:incoming>
@@ -208,9 +208,9 @@
       <bpmn:outgoing>SequenceFlow_1b5scqy</bpmn:outgoing>
       <bpmn:messageEventDefinition />
     </bpmn:intermediateCatchEvent>
-    <bpmn:serviceTask id="Task_0yn2b3z" name="releaseProducts" custom:url="http://158.42.140.112:8082/releaseproducts" custom:method="GET">
+    <bpmn:serviceTask id="Task_0yn2b3z" name="releaseProducts" custom:url="http://localhost:8082/releaseproducts" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8082/releaseproducts" />
+        <camunda:field name="url" stringValue="http://localhost:8082/releaseproducts" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1pyj162</bpmn:incoming>
@@ -221,9 +221,9 @@
       <bpmn:outgoing>SequenceFlow_1pyj162</bpmn:outgoing>
       <bpmn:messageEventDefinition />
     </bpmn:intermediateCatchEvent>
-    <bpmn:serviceTask id="Task_1ybeur7" name="updateStock" custom:url="http://158.42.140.112:8082/updateStock" custom:method="GET">
+    <bpmn:serviceTask id="Task_1ybeur7" name="updateStock" custom:url="http://localhost:8082/updateStock" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8082/updateStock" />
+        <camunda:field name="url" stringValue="http://localhost:8082/updateStock" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1b5scqy</bpmn:incoming>
@@ -251,17 +251,17 @@
       <bpmn:outgoing>SequenceFlow_07a7j1z</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_01t3m7e" />
     </bpmn:boundaryEvent>
-    <bpmn:serviceTask id="Task_15zmvin" name="cancelOrder" custom:url="http://158.42.140.112:8082/cancelorder" custom:method="GET">
+    <bpmn:serviceTask id="Task_15zmvin" name="cancelOrder" custom:url="http://localhost:8082/cancelorder" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8082/cancelorder" />
+        <camunda:field name="url" stringValue="http://localhost:8082/cancelorder" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_07a7j1z</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_05lptsr</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_0wcbuzx" name="informCustomer" custom:url="http://158.42.140.112:8082/informcustomer" custom:method="GET">
+    <bpmn:serviceTask id="Task_0wcbuzx" name="informCustomer" custom:url="http://localhost:8082/informcustomer" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8082/informcustomer" />
+        <camunda:field name="url" stringValue="http://localhost:8082/informcustomer" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_05lptsr</bpmn:incoming>
@@ -272,17 +272,17 @@
     </bpmn:endEvent>
   </bpmn:process>
   <bpmn:process id="Process_07h4c74" isExecutable="false">
-    <bpmn:serviceTask id="Task_0oyvnna" name="createShipment" custom:url="http://158.42.140.112:8085/createshipment" custom:method="GET">
+    <bpmn:serviceTask id="Task_0oyvnna" name="createShipment" custom:url="http://localhost:8085/createshipment" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8085/createshipment" />
+        <camunda:field name="url" stringValue="http://localhost:8085/createshipment" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_01mx3wo</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0b1hwvl</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_0uqsdy3" name="assignDriver" custom:url="http://158.42.140.112:8085/assigndriver" custom:method="GET">
+    <bpmn:serviceTask id="Task_0uqsdy3" name="assignDriver" custom:url="http://localhost:8085/assigndriver" custom:method="GET">
       <bpmn:extensionElements>
-        <camunda:field name="url" stringValue="http://192.168.1.62:8085/assigndriver" />
+        <camunda:field name="url" stringValue="http://localhost:8085/assigndriver" />
         <camunda:field name="method" stringValue="GET" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0b1hwvl</bpmn:incoming>

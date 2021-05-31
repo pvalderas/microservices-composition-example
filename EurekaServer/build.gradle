@@ -34,7 +34,7 @@ jar{
 	manifest {
         attributes 'Main-Class': 'es.upv.pros.pvalderas.eureka.EurekaServer'
     }
-    baseName = 'es.upv.pros.pvalders.composition.eurekaserver'
+    baseName = 'es.upv.pros.pvalderas.composition.eurekaserver'
     version =  '1.0'
 }
 

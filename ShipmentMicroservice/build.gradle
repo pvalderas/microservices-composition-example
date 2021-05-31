@@ -34,13 +34,13 @@ configurations.all {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-   	implementation 'com.github.pvalderas.microservices-composition-infrastructure:CompositionCoordinator:master-SNAPSHOT'
+   	compile 'com.github.pvalderas.microservices-composition-infrastructure:CompositionCoordinator:master-SNAPSHOT'
 }
 
 jar{
 	manifest {
         attributes 'Main-Class': 'es.upv.pros.pvalderas.composition.example.shipment.Shipment'
     }
-    baseName = 'es.upv.pros.pvalders.composition.shipmentmicroservice'
+    baseName = 'es.upv.pros.pvalderas.composition.shipmentmicroservice'
     version =  '1.0'
 }

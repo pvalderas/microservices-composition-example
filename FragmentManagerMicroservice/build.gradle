@@ -28,7 +28,7 @@ configurations.all {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-   	compile 'com.github.pvalderas:microservice-composition-fragmentmanager:master-SNAPSHOT'
+   	compile 'com.github.pvalderas.microservices-composition-infrastructure:FragmentManager:master-SNAPSHOT'
 }
 
 jar{

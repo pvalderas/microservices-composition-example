@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="DistributionCenter" name="" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0d1mqls">
+    <bpmn:participant id="Participant_119mtor" name="PHYSICAL WORLD" />
+    <bpmn:participant id="Participant_17s2oaa" name="Your Organization" processRef="Process_1boiacn" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1boiacn">
+    <bpmn:laneSet id="LaneSet_0uzdaco">
+      <bpmn:lane id="Lane_0lttppe" />
+      <bpmn:lane id="Lane_1kp4331" />
+    </bpmn:laneSet>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0d1mqls">
+      <bpmndi:BPMNShape id="Participant_1y45dt6_di" bpmnElement="Participant_119mtor" isHorizontal="true">
+        <dc:Bounds x="160" y="107" width="1028" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_17s2oaa_di" bpmnElement="Participant_17s2oaa" isHorizontal="true">
+        <dc:Bounds x="160" y="228" width="1029" height="258" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1kp4331_di" bpmnElement="Lane_1kp4331" isHorizontal="true">
+        <dc:Bounds x="190" y="228" width="999" height="129" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0lttppe_di" bpmnElement="Lane_0lttppe" isHorizontal="true">
+        <dc:Bounds x="190" y="357" width="999" height="129" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
