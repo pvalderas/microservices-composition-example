@@ -8,8 +8,10 @@ server:
 composition:
   messagebroker:
     type: rabbitmq
-    host: localhost
+    host: 172.23.180.72
     port: 5672
+    user: microservice
+    password: microservice
     exchange: composition
   fragmentmanager:
     url: http://localhost:8083

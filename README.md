@@ -5,7 +5,7 @@ To do so, the supporting infrastructure available in the following Github reposi
 
 # About
 
-This is the result of a reserach work leaded by Pedro Valderas at the PROS Research Center, Universitat Politècnica de València, Spain.
+This is the result of a research work leaded by Pedro Valderas at the PROS Research Center, Universitat Politècnica de València, Spain.
 
 This work presents a microservice composition approach based on the choreography of BPMN fragments. On the one hand, developers can describe the big picture of the composition with a BPMN model, providing a valuable mechanism to analyse it when engineering decisions need to be taken. On the other hand, this model is split into fragments in order to be executed though an event-based choreography form, providing the high degree of decoupling among microservices demanded in this type of architecture. 
 
@@ -70,9 +70,9 @@ For instance, in order to start the composition of the provided example, if you 
 
 To facilitate the publication of messages, the RabbitCompositionEventSender Java application is provided. 
 
-# Evolving a microservice composition
+# Updating a microservice composition
 
-In order to evolve a microservice composition you have two options:
+In order to update a microservice composition you have two options:
 
 * Modify the big picture of the composition by using the BPMN editor provided by the Global Composition Manager. Then, changes are propagated to the Fragment of each microservice.
 * Modify the BPMN fragment of a particular microservice. To do so, the Composition Controller of each microservice publishes an adapted version of the BPMN editor, which allows you to select a Fragment managed by the microservice, modify it, and sincronize changes with the big picture. For instance, the BPMN editor of the Customer microservice is published at http://localhost:8081. An animated snapshot of it is shown below.
