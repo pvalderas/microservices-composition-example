@@ -4,6 +4,7 @@ spring:
     
 server:
   port: 8081
+  ip: 172.23.180.109
   
 composition:
   messagebroker:
@@ -12,11 +13,10 @@ composition:
     port: 5672
     user: microservice
     password: microservice
-    exchange: composition
   fragmentmanager:
-    url: http://localhost:8083
+    url: http://172.23.186.140:8083
     
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:2222/eureka
+      defaultZone: http://172.23.186.140:2222/eureka

@@ -18,39 +18,36 @@ public class Main {
 		Scanner teclado=new Scanner(System.in);
 
 		ConnectionFactory factory = new ConnectionFactory();
+		factory.setHost("172.23.180.72");
+		//factory.setHost("localhost");
+		factory.setPort(5672);
+		factory.setUsername("microservice");
+		factory.setPassword("microservice");
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
 		channel.exchangeDeclare(exchange, BuiltinExchangeType.TOPIC);
 		
 		String microservice, composition, message;
 		
-		System.out.println("Introduce microservice:");
-		System.out.println("[INTRO (Default): Customers]");
-		microservice=teclado.nextLine();
-		if(microservice.length()==0) microservice="customers";
-		
 		System.out.println("Introduce composition ID:");
-		System.out.println("[INTRO (Default): PurchaseOrder]");
 		composition=teclado.nextLine();
-		if(composition.length()==0) composition="PurchaseOrder";
+
 		
-		System.out.println("Introduce an event:");
-		System.out.println("[INTRO (Default): ProcessPurchaseOrder]");
-		message=teclado.nextLine();
-		if(message.length()==0)  message="ProcessPurchaseOrder";
-		
-		String client=String.valueOf(System.currentTimeMillis());
-		
-		String routingKey=microservice+"."+composition.toLowerCase()+"."+client;
-	
-		
-		String BPMNMessage=composition+"_"+message+"Message";
-		System.out.println(BPMNMessage);
-		String messageJSON="{\"message\":\""+BPMNMessage+"\",\"client\":\""+client+"\"}";
-		
-		if(message!="quit"){
-			channel.basicPublish(exchange, routingKey, null, messageJSON.getBytes());
-		}
+		do{
+			System.out.println("Introduce an Physical World event [Empty to finish]:");
+			message=teclado.nextLine();
+			message=message.replaceAll(" ", "");
+			if(message.length()>0) {
+				String client=String.valueOf(System.currentTimeMillis());
+				String routingKey=composition.toLowerCase()+"."+client;
+			
+				String BPMNMessage=composition+"_"+message+"Message";
+				System.out.println(BPMNMessage);
+				String messageJSON="{\"message\":\""+BPMNMessage+"\",\"client\":\""+client+"\"}";
+				
+				channel.basicPublish(exchange, routingKey, null, messageJSON.getBytes());
+			}
+		}while(message.length()>0);
 		
 		teclado.close();
 		channel.close();

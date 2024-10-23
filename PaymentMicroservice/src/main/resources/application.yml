@@ -3,18 +3,20 @@ spring:
     name: Payment
     
 server:
-  port: 8086
+  port: 8081
+  ip: 172.23.180.111
   
 composition:
   messagebroker:
     type: rabbitmq
-    host: localhost
+    host: 172.23.180.72
     port: 5672
-    exchange: composition
+    user: microservice
+    password: microservice
   fragmentmanager:
-    url: http://localhost:8083
+    url: http://172.23.186.140:8083
     
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:2222/eureka
+      defaultZone: http://172.23.186.140:2222/eureka

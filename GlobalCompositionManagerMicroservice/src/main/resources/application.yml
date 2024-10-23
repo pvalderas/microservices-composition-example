@@ -3,8 +3,14 @@ server:
 
 composition:
   fragmentmanager:
-    url: http://localhost:8083/compositions
+    url: http://localhost:8083
   serviceregistry:
-    url: http://localhost:9999/eureka-server
     type: eureka
+    url: http://localhost:2222
+  messagebroker:
+    type: rabbitmq
+    host: 172.23.180.72
+    port: 5672
+    user: microservice
+    password: microservice
  

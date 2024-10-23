@@ -4,4 +4,12 @@ server:
 composition:
   globalcompositionmanager:
     url: http://localhost:8084
- 
+  serviceregistry:
+    type: eureka
+    url: http://localhost:2222
+  messagebroker:
+    type: rabbitmq
+    host: 172.23.180.72
+    port: 5672
+    user: microservice
+    password: microservice

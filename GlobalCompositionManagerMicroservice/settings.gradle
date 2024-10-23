@@ -15,4 +15,14 @@ include 'api'
 include 'services:webservice'
 */
 
+include   'CompositionUtils'
+project(':CompositionUtils').projectDir = new File(settingsDir, '../../es.upv.pros.pvalderas.microservices.composition.infrastructure/CompositionUtils')
+
+include   'BPMNDomainClasses'
+project(':BPMNDomainClasses').projectDir = new File(settingsDir, '../../es.upv.pros.pvalderas.microservices.composition.infrastructure/BPMNDomainClasses')
+
+include 'GlobalCompositionManager'
+project(':GlobalCompositionManager').projectDir = new File(settingsDir, '../../es.upv.pros.pvalderas.microservices.composition.infrastructure/GlobalCompositionManager')
+
+
 rootProject.name = 'GlobalCompositionManagerMicroservice'

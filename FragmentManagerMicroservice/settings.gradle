@@ -14,4 +14,13 @@ include 'shared'
 include 'api'
 include 'services:webservice'
 */
+include   'CompositionUtils'
+project(':CompositionUtils').projectDir = new File(settingsDir, '../../es.upv.pros.pvalderas.microservices.composition.infrastructure/CompositionUtils')
+
+include   'BPMNDomainClasses'
+project(':BPMNDomainClasses').projectDir = new File(settingsDir, '../../es.upv.pros.pvalderas.microservices.composition.infrastructure/BPMNDomainClasses')
+
+include 'FragmentManager'
+project(':FragmentManager').projectDir = new File(settingsDir, '../../es.upv.pros.pvalderas.microservices.composition.infrastructure/FragmentManager')
+
 rootProject.name = 'FragmentManagerMicroservice'

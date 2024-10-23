@@ -34,7 +34,8 @@ configurations.all {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-   	compile 'com.github.pvalderas.microservices-composition-infrastructure:CompositionCoordinator:master-SNAPSHOT'
+   	//compile 'com.github.pvalderas.microservices-composition-infrastructure:CompositionCoordinator:master-SNAPSHOT'
+   	 compile project(':CompositionCoordinator')
 }
 
 jar{
