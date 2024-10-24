@@ -81,7 +81,7 @@ In order to update a microservice composition you have two options:
 
 Note that the evolution of a microservice composition from a BPMN Fragment is limited to changes in service tasks performed by the corresponding microservice, the defined event-based communication must be mantained. This means that, for instance, catch and through events, and message flows cannot be modified. These type of modifications must be done from the big picture provided by the Global Composition Manager.
 
-# Knowledgment
+# Acknowledgement
 
 Grant MCIN/AEI/10.13039/501100011033 funded by: 
 
